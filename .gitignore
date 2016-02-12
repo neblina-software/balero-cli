@@ -1,6 +1,9 @@
+src
 .idea
 build
 ./balero-cli.iml
+balero-cli.iml
+*.iml
 *.zip
 out
 updates
