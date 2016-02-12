@@ -1,7 +1,6 @@
 .idea
 build
-balerocms-cli.iml
-balero-cli.iml
+./balero-cli.iml
 *.zip
 out
 updates
