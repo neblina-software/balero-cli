@@ -13,14 +13,19 @@ import java.net.*;
 import java.io.*;
 
 public class URLConnectionReader {
-    public void downloadZipFile(String saveTo) throws IOException {
-        URL url = new URL("https://github.com/neblina-software/balerocms-enterprise/archive/1.0-BETA2.zip");
+    public void downloadZipFile(String version) throws IOException {
+        File file = new File("./updates");
+        if(!file.exists()) {
+            file.mkdir();
+        }
+
+        URL url = new URL("https://github.com/neblina-software/balerocms-enterprise/archive/" + version +".zip");
         int lenght = getFileSize(url);
-        System.out.println("Downloading Size: " + lenght + " MB");
+        System.out.println("Download Size: " + lenght + " MB");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         InputStream in = connection.getInputStream();
-        FileOutputStream out = new FileOutputStream("balerocms-enterprise.zip");
+        FileOutputStream out = new FileOutputStream("updates/balerocms-enterprise-"+ version +".zip");
         copy(in, out, 1024);
         out.close();
     }
