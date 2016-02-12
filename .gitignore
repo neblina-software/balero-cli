@@ -1,4 +1,6 @@
 .idea
 build
-balerocms-update.iml
+balerocms-cli.iml
 *.zip
+out
+updates
