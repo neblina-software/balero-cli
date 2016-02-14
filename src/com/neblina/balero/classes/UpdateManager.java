@@ -9,15 +9,23 @@
 
 package com.neblina.balero.classes;
 
+import java.io.File;
 import java.io.IOException;
 
 public class UpdateManager {
 
+    private String version = "1.0-BETA3";
+    private String outputDirectory = "updates";
+    private String updatesDirectory = "updates";
+
     public void init() throws IOException {
         URLConnectionReader urlConnectionReader = new URLConnectionReader();
-        urlConnectionReader.downloadZipFile("1.0-BETA3");
+        urlConnectionReader.downloadZipFile(version);
         UnZip unZip = new UnZip();
-        unZip.unZipIt("updates/balerocms-enterprise-1.0-BETA3.zip", "updates");
+        unZip.unZipIt(updatesDirectory + "/balerocms-enterprise-" + version + ".zip", outputDirectory);
+        FileManager fileManager = new FileManager();
+        File directory = new File(outputDirectory + "/balerocms-enterprise-" + version + "/src/main/resources/config");
+        fileManager.deleteDirectory(directory);
     }
 
 }

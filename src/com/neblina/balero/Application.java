@@ -24,7 +24,7 @@ public class Application {
                 " |______  /(____  /____/\\___  >__|   \\____/ \n" +
                 "        \\/      \\/          \\/      " +
                 "");
-        System.out.println("\t\t\t\t ::: Updating Software... :::\n");
+        System.out.println("\t\t\t\t\t ::: Software Update :::\n");
         UpdateManager updateManager = new UpdateManager();
         updateManager.init();
     }
