@@ -12,6 +12,7 @@ package com.neblina.balero;
 import com.neblina.balero.classes.UpdateManager;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Application {
 
@@ -25,7 +26,23 @@ public class Application {
                 "        \\/      \\/          \\/      " +
                 "");
         System.out.println("\t\t\t\t\t ::: Software Update :::\n");
-        UpdateManager updateManager = new UpdateManager();
-        updateManager.init();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Really want update? [Y/N]");
+        String opt = scanner.nextLine();
+        opt = opt.toUpperCase();
+        switch (opt) {
+            case "Y":
+                UpdateManager updateManager = new UpdateManager();
+                updateManager.init();
+                break;
+
+            //case "E":
+                //ConfigEditor configEditor = new ConfigEditor();
+                //configEditor.init();
+                //break;
+
+                default:
+                    System.exit(0);
+        }
     }
 }

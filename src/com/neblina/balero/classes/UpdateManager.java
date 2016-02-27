@@ -21,11 +21,14 @@ public class UpdateManager {
     public void init() throws IOException {
         URLConnectionReader urlConnectionReader = new URLConnectionReader();
         urlConnectionReader.downloadZipFile(version);
-        UnZip unZip = new UnZip();
+        UnZip unZip = new UnZip(this.version);
         unZip.unZipIt(updatesDirectory + "/balerocms-enterprise-" + version + ".zip", outputDirectory);
         FileManager fileManager = new FileManager();
-        File directory = new File(outputDirectory + "/balerocms-enterprise-" + version + "/src/main/resources/config");
+        File directory = new File(outputDirectory + "/src/main/resources/config");
         fileManager.deleteDirectory(directory);
+        ConfigEditor configEditor = new ConfigEditor();
+        configEditor.setVersion(this.version);
+        configEditor.init();
     }
 
 }

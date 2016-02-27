@@ -6,3 +6,4 @@ balero-cli.iml
 *.zip
 out
 updates
+src/main/java/resources/config
