@@ -31,4 +31,8 @@ public class UpdateManager {
         configEditor.init();
     }
 
+    public String getVersion() {
+        return this.version;
+    }
+
 }

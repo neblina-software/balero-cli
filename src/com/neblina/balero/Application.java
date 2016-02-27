@@ -26,13 +26,13 @@ public class Application {
                 "        \\/      \\/          \\/      " +
                 "");
         System.out.println("\t\t\t\t\t ::: Software Update :::\n");
+        UpdateManager updateManager = new UpdateManager();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Really want update? [Y/N]");
+        System.out.println("Really want update to the version? " + updateManager.getVersion() + " [Y/N]");
         String opt = scanner.nextLine();
         opt = opt.toUpperCase();
         switch (opt) {
             case "Y":
-                UpdateManager updateManager = new UpdateManager();
                 updateManager.init();
                 break;
 
