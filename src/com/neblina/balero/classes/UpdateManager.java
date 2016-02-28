@@ -15,7 +15,7 @@ import java.io.IOException;
 public class UpdateManager {
 
     private String version = "1.0-BETA3";
-    private String outputDirectory = "updates";
+    private String outputDirectory = System.getProperty("user.dir");
     private String updatesDirectory = "updates";
 
     public void init() throws IOException {
