@@ -7,3 +7,16 @@ balero-cli.iml
 out
 updates
 src/main/java/resources/config
+
+.bowerrc
+bower.json
+CHANGELOG.md
+LICENSE.txt
+pom.xml
+TODO.md
+src/main
+src/META-INF
+src/test/*
+src/test/**
+lib
+docs
