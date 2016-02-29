@@ -23,7 +23,7 @@ public class ConfigEditor {
     private String version;
 
     public void init() throws IOException {
-        File f = new File(System.getProperty("user.dir") + "/src/main/java/resources/config/application.properties");
+        File f = new File(System.getProperty("user.dir") + "/src/main/resources/config/application.properties");
         lines = Files.readAllLines(f.toPath(), Charset.defaultCharset());
         changeValueOf("balerocms.version", this.version); // the name and the value you want to modify
         Files.write(f.toPath(), changeValueOf("balerocms.version", this.version), Charset.defaultCharset());

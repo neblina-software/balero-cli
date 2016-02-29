@@ -15,10 +15,11 @@ import java.io.IOException;
 public class UpdateManager {
 
     private String version = "1.0-BETA3";
-    private String outputDirectory = System.getProperty("user.dir");
+    private String outputDirectory = System.getProperty("user.dir") + "/updates";
     private String updatesDirectory = "updates";
 
     public void init() throws IOException {
+        String currDir = System.getProperty("user.dir");
         URLConnectionReader urlConnectionReader = new URLConnectionReader();
         urlConnectionReader.downloadZipFile(version);
         UnZip unZip = new UnZip(this.version);
@@ -29,6 +30,11 @@ public class UpdateManager {
         ConfigEditor configEditor = new ConfigEditor();
         configEditor.setVersion(this.version);
         configEditor.init();
+        // Move
+        MakeAMove makeAMove = new MakeAMove();
+        makeAMove.init(currDir + "/updates/docs", currDir + "/docs");
+        makeAMove.init(currDir + "/updates/lib", currDir + "/lib");
+        //makeAMove.init(currDir + "/updates/src", currDir + "/src");
     }
 
     public String getVersion() {
